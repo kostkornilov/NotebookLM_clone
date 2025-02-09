@@ -20,6 +20,7 @@ const FileUpload = () => {
       const response = await axios.post("http://localhost:8000/documents/upload/", formData);
       setMessage(response.data.message);
     } catch (error) {
+      console.error("Error uploading file:", error.response || error.message);
       setMessage("Error uploading file.");
     }
 

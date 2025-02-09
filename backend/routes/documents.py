@@ -8,6 +8,7 @@ router = APIRouter()
 
 @router.post("/upload/")
 async def upload_document(file: UploadFile = File(...)):
+    os.makedirs(DATA_STORAGE_PATH, exist_ok=True)  # Ensure the directory exists
     file_path = os.path.join(DATA_STORAGE_PATH, file.filename)
     with open(file_path, "wb") as f:
         f.write(await file.read())

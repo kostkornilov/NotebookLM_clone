@@ -120,3 +120,9 @@ jspm_packages/
 venv/
 env/
 
+# dotenv environment variables file
+.env
+
+# Data storage
+data/
+
