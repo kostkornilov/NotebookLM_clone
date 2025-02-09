@@ -105,3 +105,9 @@ jspm_packages/
 # dotenv environment variables file
 .env
 
+# Node.js
+.next/
+
+# Emotion
+.emotion/
+
