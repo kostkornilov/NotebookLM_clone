@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        return summary        summary = self.tokenizer.decode(summary_ids, skip_special_tokens=True)        summary_ids = torch.argmax(logits, dim=-1)        logits = self.forward(input_ids, attention_mask)        attention_mask = inputs['attention_mask']        input_ids = inputs['input_ids']        inputs = self.tokenizer(text, return_tensors='pt', max_length=max_length, truncation=True, padding='max_length')    def summarize(self, text, max_length=512):        return logits        logits = self.linear(cls_output)        cls_output = outputs.last_hidden_state[:, 0, :]        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)    def forward(self, input_ids, attention_mask):        self.linear = nn.Linear(self.bert.config.hidden_size, 1)        self.tokenizer = BertTokenizer.from_pretrained(bert_model_name)        self.bert = BertModel.from_pretrained(bert_model_name)        super(SummarizationModel, self).__init__()    def __init__(self, bert_model_name='bert-base-uncased'):class SummarizationModel(nn.Module):from transformers import BertModel, BertTokenizerimport torch.nn.functional as Fimport torch.nn as nnimport torch
