@@ -111,3 +111,12 @@ jspm_packages/
 # Emotion
 .emotion/
 
+# Installed packages
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Python virtual environment
+venv/
+env/
+

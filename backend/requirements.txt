@@ -1,1 +1,11 @@
-# ...existing code...
+fastapi
+uvicorn
+python-dotenv
+openai
+PyMuPDF
+faiss-cpu
+langchain
+transformers
+torch
+pydantic
+langchain-community

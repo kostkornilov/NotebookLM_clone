@@ -1,27 +1,19 @@
+# models/summarization.py
+import openai
+from config import OPENAI_API_KEY
 
+def summarize_text(text: str, max_length: int = 150) -> str:
+    """
+    Summarize the provided text using OpenAI's GPT.
+    """
+    prompt = f"Please summarize the following text:\n\n{text}\n\nSummary:"
 
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[{"role": "system", "content": "You are a helpful assistant."},
+                  {"role": "user", "content": prompt}],
+        api_key=OPENAI_API_KEY
+    )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        return summary        summary = self.tokenizer.decode(summary_ids, skip_special_tokens=True)        summary_ids = torch.argmax(logits, dim=-1)        logits = self.forward(input_ids, attention_mask)        attention_mask = inputs['attention_mask']        input_ids = inputs['input_ids']        inputs = self.tokenizer(text, return_tensors='pt', max_length=max_length, truncation=True, padding='max_length')    def summarize(self, text, max_length=512):        return logits        logits = self.linear(cls_output)        cls_output = outputs.last_hidden_state[:, 0, :]        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)    def forward(self, input_ids, attention_mask):        self.linear = nn.Linear(self.bert.config.hidden_size, 1)        self.tokenizer = BertTokenizer.from_pretrained(bert_model_name)        self.bert = BertModel.from_pretrained(bert_model_name)        super(SummarizationModel, self).__init__()    def __init__(self, bert_model_name='bert-base-uncased'):class SummarizationModel(nn.Module):from transformers import BertModel, BertTokenizerimport torch.nn.functional as Fimport torch.nn as nnimport torch
+    summary = response["choices"][0]["message"]["content"]
+    return summary
