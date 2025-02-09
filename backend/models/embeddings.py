@@ -1,11 +1,10 @@
 import faiss
 import numpy as np
-from langchain.embeddings.openai import OpenAIEmbeddings
-from config import OPENAI_API_KEY
+from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 
 class VectorStore:
-    def __init__(self):
-        self.embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+    def __init__(self, model_name='sentence-transformers/all-MiniLM-L6-v2'):
+        self.embeddings = HuggingFaceEmbeddings(model_name=model_name)
         self.index = None
         self.text_data = []  # Stores text chunks
 
